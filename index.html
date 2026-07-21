@@ -325,8 +325,11 @@ body.modal-open{overflow:hidden}
 @media(max-width:640px){.fab{bottom:16px;right:16px;padding:13px 18px;font-size:.92rem}}
 
 /* 수강생 후기 */
+#reviews{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-d) 100%)}
+#reviews h2{color:#fff}
+#reviews .sec-lead{color:#CBD6CB}
 .review-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-.review{background:#fff;border:1px solid var(--line);border-radius:12px;padding:30px 28px 24px;position:relative}
+.review{background:#fff;border:1px solid var(--line);border-radius:12px;padding:30px 28px 24px;position:relative;box-shadow:0 14px 34px rgba(0,0,0,.18)}
 .review::before{content:"\201C";position:absolute;top:10px;left:22px;font-size:3.4rem;font-weight:900;color:#E3C57E;line-height:1;font-family:Georgia,serif}
 .review p{color:#3A4250;font-size:1.02rem;line-height:1.7;margin:26px 0 16px;font-weight:500}
 .review cite{display:block;font-style:normal;color:var(--muted);font-size:.88rem;border-top:1px solid var(--gray-bg);padding-top:12px}
@@ -379,7 +382,7 @@ footer a:hover{color:#fff}
 
 <header>
   <div class="wrap nav">
-    <a class="logo" href="#top">서희경 <span>AI EDU</span></a>
+    <a class="logo" href="#top">서희경 <span>마틴랩스</span></a>
     <ul class="nav-links">
       <li><a href="#tracks">강의 분야</a></li>
       <li><a href="#programs">프로그램</a></li>
