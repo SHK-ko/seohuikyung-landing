@@ -324,6 +324,15 @@ body.modal-open{overflow:hidden}
 @keyframes fabPulse{0%{box-shadow:0 0 0 0 rgba(201,162,75,.55)}70%{box-shadow:0 0 0 16px rgba(201,162,75,0)}100%{box-shadow:0 0 0 0 rgba(201,162,75,0)}}
 @media(max-width:640px){.fab{bottom:16px;right:16px;padding:13px 18px;font-size:.92rem}}
 
+/* 수강생 후기 */
+.review-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.review{background:#fff;border:1px solid var(--line);border-radius:12px;padding:30px 28px 24px;position:relative}
+.review::before{content:"\201C";position:absolute;top:10px;left:22px;font-size:3.4rem;font-weight:900;color:#E3C57E;line-height:1;font-family:Georgia,serif}
+.review p{color:#3A4250;font-size:1.02rem;line-height:1.7;margin:26px 0 16px;font-weight:500}
+.review cite{display:block;font-style:normal;color:var(--muted);font-size:.88rem;border-top:1px solid var(--gray-bg);padding-top:12px}
+.review cite b{color:var(--navy)}
+@media(max-width:860px){.review-grid{grid-template-columns:1fr}}
+
 /* 곡선 디바이더 */
 .curve{display:block;width:100%;line-height:0}
 .curve svg{width:100%;height:56px;display:block}
@@ -628,6 +637,20 @@ footer a:hover{color:#fff}
   </div>
 </section>
 
+<!-- S7.5 수강생 후기 -->
+<section id="reviews">
+  <div class="wrap">
+    <h2>수강생들은 강의를 어떻게 평가하나요?</h2>
+    <p class="sec-lead">실제 강의 현장에서 받은 수강생 피드백입니다.</p>
+    <div class="review-grid">
+      <blockquote class="review"><p>강의에서 알려주신 정보를 팔로업해서 결국 직군 전환에 성공했습니다.</p><cite><b>상공회의소</b> · 생성형 AI 생존 로드맵 수강생</cite></blockquote>
+      <blockquote class="review"><p>기초부터 쉽게 알려주셔서 AI가 처음인 저에게 큰 도움이 되었습니다.</p><cite><b>상공회의소</b> · AI 특강 수강생</cite></blockquote>
+      <blockquote class="review"><p>업무에 바로 쓸 수 있는 다양한 AI 기능을 알게 되었습니다.</p><cite><b>충남인재개발원</b> · 공무원 AI 활용 교육생</cite></blockquote>
+      <blockquote class="review"><p>여기서 끝내기 아쉬워요. 지속적으로 배울 수 있게 스터디를 만들어 주세요.</p><cite><b>서울시50플러스</b> · 디지털 역량 과정 수강생</cite></blockquote>
+    </div>
+  </div>
+</section>
+
 <!-- S8 저서·수상·미디어 -->
 <section>
   <div class="wrap">
@@ -776,7 +799,7 @@ document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal()
 
 /* ── 스크롤 리빌 ── */
 const revealTargets = document.querySelectorAll(
-  "section h2, .sec-lead, .pain, .promise, .track, .prog, .roadmap, .roadmap-step, .mod, .courses-note, .photo-break blockquote, .photo-break p, .about-grid > *, .proof-col, .book, .media-box, .faq details, .proof-note, .cta-grid > *"
+  "section h2, .sec-lead, .pain, .promise, .track, .prog, .roadmap, .roadmap-step, .mod, .courses-note, .review, .photo-break blockquote, .photo-break p, .about-grid > *, .proof-col, .book, .media-box, .faq details, .proof-note, .cta-grid > *"
 );
 revealTargets.forEach(el => el.classList.add("reveal"));
 const io = new IntersectionObserver(entries => {
