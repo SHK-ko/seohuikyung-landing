@@ -326,17 +326,17 @@ body.modal-open{overflow:hidden}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
 
 /* 최상단 이동 버튼 */
-.to-top{position:fixed;bottom:94px;right:24px;z-index:89;width:46px;height:46px;border-radius:50%;background:var(--navy);color:#E3C57E;border:1px solid rgba(201,162,75,.45);font-size:1.15rem;font-weight:800;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(12px);transition:opacity .3s ease,transform .3s ease,visibility .3s,background .2s;box-shadow:0 8px 24px rgba(20,56,42,.3)}
+.to-top{position:fixed;bottom:92px;right:29px;z-index:89;width:46px;height:46px;border-radius:50%;background:var(--navy);color:#E3C57E;border:1px solid rgba(201,162,75,.45);font-size:1.15rem;font-weight:800;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(12px);transition:opacity .3s ease,transform .3s ease,visibility .3s,background .2s;box-shadow:0 8px 24px rgba(20,56,42,.3)}
 .to-top.show{opacity:1;visibility:visible;transform:none}
 .to-top:hover{background:var(--navy-d);transform:translateY(-3px)}
-@media(max-width:640px){.to-top{bottom:76px;right:16px;width:42px;height:42px}}
+@media(max-width:640px){.to-top{bottom:76px;right:20px;width:42px;height:42px}}
 
 /* 플로팅 문의 버튼 */
-.fab{position:fixed;bottom:24px;right:24px;z-index:90;display:flex;align-items:center;gap:8px;background:var(--sky);color:#fff;border:0;border-radius:999px;padding:15px 24px;font-family:inherit;font-size:1rem;font-weight:800;cursor:pointer;box-shadow:0 10px 30px rgba(20,56,42,.35);transition:transform .2s ease,box-shadow .2s ease}
-.fab:hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(20,56,42,.45)}
-.fab::before{content:"";position:absolute;inset:0;border-radius:999px;box-shadow:0 0 0 0 rgba(201,162,75,.55);animation:fabPulse 2.4s ease-out infinite}
-@keyframes fabPulse{0%{box-shadow:0 0 0 0 rgba(201,162,75,.55)}70%{box-shadow:0 0 0 16px rgba(201,162,75,0)}100%{box-shadow:0 0 0 0 rgba(201,162,75,0)}}
-@media(max-width:640px){.fab{bottom:16px;right:16px;padding:13px 18px;font-size:.92rem}}
+.fab{position:fixed;bottom:24px;right:24px;z-index:90;display:flex;align-items:center;justify-content:center;width:56px;height:56px;background:var(--sky);color:#fff;border:1px solid rgba(255,255,255,.25);border-radius:50%;font-family:inherit;font-size:.95rem;font-weight:800;cursor:pointer;box-shadow:0 10px 30px rgba(20,56,42,.35);transition:transform .2s ease,box-shadow .2s ease,background .2s ease}
+.fab:hover{transform:translateY(-3px);background:#B08A35;box-shadow:0 16px 36px rgba(20,56,42,.45)}
+.fab::before{content:"";position:absolute;inset:0;border-radius:50%;box-shadow:0 0 0 0 rgba(201,162,75,.55);animation:fabPulse 2.4s ease-out infinite}
+@keyframes fabPulse{0%{box-shadow:0 0 0 0 rgba(201,162,75,.55)}70%{box-shadow:0 0 0 14px rgba(201,162,75,0)}100%{box-shadow:0 0 0 0 rgba(201,162,75,0)}}
+@media(max-width:640px){.fab{bottom:16px;right:16px;width:50px;height:50px;font-size:.88rem}}
 
 /* 수강생 후기 */
 #reviews{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-d) 100%)}
@@ -743,7 +743,7 @@ footer a:hover{color:#fff}
 <button class="to-top" id="toTop" type="button" aria-label="맨 위로 이동">↑</button>
 
 <!-- 플로팅 문의 버튼 (챗봇형) -->
-<button class="fab js-open-modal" type="button" aria-haspopup="dialog" aria-controls="contactModal">💬 강의·컨설팅 문의</button>
+<button class="fab js-open-modal" type="button" aria-haspopup="dialog" aria-controls="contactModal" aria-label="강의·컨설팅 문의">문의</button>
 
 <!-- 문의 모달 -->
 <div class="modal-overlay" id="contactModal" role="dialog" aria-modal="true" aria-label="강의·컨설팅 문의">
