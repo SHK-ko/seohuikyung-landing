@@ -18,6 +18,24 @@
 <meta property="og:locale" content="ko_KR">
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 
+<!-- ── 방문 측정: Google Analytics 4 (속성: 서희경 랜딩페이지) ── -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7HYTMPMF0F"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7HYTMPMF0F');
+</script>
+
+<!-- ── 방문 측정: 네이버 애널리틱스 (사이트: 서희경 AI 강사 컨설턴트) ── -->
+<script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+<script type="text/javascript">
+  if (!window.wcs_add) var wcs_add = {};
+  wcs_add["wa"] = "257753bbe0ce000";
+  if (!window._nasa) var _nasa = {};
+  if (window.wcs) { wcs.inflow(); wcs_do(_nasa); }
+</script>
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -817,7 +835,7 @@ toTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smoot
 
 /* ── 문의 모달 ── */
 const modal = document.getElementById("contactModal");
-function openModal(){ modal.classList.add("open"); document.body.classList.add("modal-open"); }
+function openModal(){ modal.classList.add("open"); document.body.classList.add("modal-open"); if (window.gtag) gtag('event', 'open_inquiry_form', { location: 'contact_modal' }); }
 function closeModal(){ modal.classList.remove("open"); document.body.classList.remove("modal-open"); }
 document.querySelectorAll(".js-open-modal").forEach(el =>
   el.addEventListener("click", e => { e.preventDefault(); openModal(); })
@@ -895,6 +913,9 @@ form.addEventListener("submit", async (e) => {
     });
     msg.classList.add("ok");
     msg.textContent = "문의가 접수되었습니다. 1영업일 내 회신드리겠습니다.";
+    // 전환 추적: 폼 제출 성공 (GA4 + 네이버)
+    if (window.gtag) gtag('event', 'generate_lead', { form_location: 'inquiry_form' });
+    if (window.wcs && typeof wcs.cnv === 'function') { var _conv = {}; _conv["cnv"] = wcs.cnv("2","1"); wcs_do(_conv); }
     form.reset();
   } catch (err) {
     msg.classList.add("err");
@@ -903,6 +924,14 @@ form.addEventListener("submit", async (e) => {
     btn.disabled = false;
     btn.textContent = "문의 보내기";
   }
+});
+
+/* ── 전화·이메일 클릭 추적 (마이크로 전환) ── */
+document.addEventListener("click", (e) => {
+  const a = e.target.closest('a[href^="tel:"], a[href^="mailto:"]');
+  if (!a || !window.gtag) return;
+  const kind = a.getAttribute("href").startsWith("tel:") ? "click_phone" : "click_email";
+  gtag('event', kind, { link_url: a.getAttribute("href") });
 });
 </script>
 </body>
