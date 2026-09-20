@@ -784,8 +784,8 @@ footer a:hover{color:#fff}
       <form id="inquiryForm" novalidate>
         <label>이름 <span class="req">*</span></label>
         <input type="text" name="name" required placeholder="홍길동">
-        <label>소속 기관 <span class="req">*</span></label>
-        <input type="text" name="org" required placeholder="○○기관 / ○○기업 / 개인">
+        <label>소속 기관</label>
+        <input type="text" name="org" placeholder="○○기관 / ○○기업 / 개인">
         <label>연락처 <span class="req">*</span></label>
         <input type="text" name="phone" required placeholder="이메일 또는 전화번호">
         <label>희망 주제·교육 대상</label>
@@ -884,11 +884,11 @@ form.addEventListener("submit", async (e) => {
   msg.className = "form-msg";
 
   // 필수값 검증
-  const required = ["name", "org", "phone"];
+  const required = ["name", "phone"];
   for (const f of required) {
     if (!form[f].value.trim()) {
       msg.classList.add("err");
-      msg.textContent = "이름, 소속 기관, 연락처는 필수 입력입니다.";
+      msg.textContent = "이름과 연락처는 필수 입력입니다.";
       form[f].focus();
       return;
     }
